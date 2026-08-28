@@ -1,0 +1,39 @@
+generated: '2026-08-28'
+method: probed
+source: >-
+  Probes of status.securian.com, securian.statuspage.io, trust.securian.com, and
+  a scan of https://www.securian.com/sitemap.xml for versioning, deprecation or
+  SLA pages.
+versioning:
+  scheme: null
+  policy_url: null
+  note: No API versioning policy published; no API reference exists to version.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header documentation,
+    and no deprecated operations to derive (no OpenAPI published).
+status_page:
+  url: null
+  present: false
+  evidence:
+    - url: https://status.securian.com/
+      status: 000
+      note: does not resolve
+    - url: https://securian.statuspage.io/
+      status: 200
+      note: >-
+        Soft-404. Follows through to Atlassian's Statuspage marketing site
+        (title "Real-Time Incident Communication with Statuspage | Atlassian");
+        /api/v2/summary.json redirects to www.statuspage.io. Not a Securian
+        status page. Recorded as a miss - no StatusPage pointer wired.
+sla:
+  published: false
+  note: >-
+    No public SLA. Service commitments for Platform Connect and FlexTech partners
+    are presumably contractual and are not published.
+note: >-
+  No Lifecycle, StatusPage or Deprecation pointer is wired into apis.yml: none of
+  the three surfaces exists. This file is the record of the checks.

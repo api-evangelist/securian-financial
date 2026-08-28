@@ -1,0 +1,75 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.securian.com/employers/flexible-administration/strategic-partnerships/securian-platform-connect.html
+  and https://www.securian.com/financial-institutions/products-solutions/embedded-technology-solutions.html
+note: >-
+  Securian publishes no machine-readable contract, so every entry below is graded
+  against provider prose only. Per the pipeline's domain-standard rule, a standard
+  counts as conformant when the CONTRACT declares it - a schema URN, a $metadata
+  surface, a message type. Securian has no contract to declare anything in, so the
+  LDEx entry is recorded as claimed-but-unverified rather than conformant. This is
+  a real, useful distinction for a buyer: a partner still needs Securian to hand
+  over the integration spec bilaterally.
+standards:
+  - id: ldex
+    name: LIMRA Data Exchange Standards (LDEx)
+    conforms: false
+    claimed: true
+    verified: false
+    domain_standard: true
+    profiles:
+      - Evidence of Insurability Standard (EOIS)
+      - Benefits Enrollment Management (BEM)
+    evidence: >-
+      Securian Platform Connect page states that Securian exchanges group-benefits
+      data with employer benefits-administration platforms using LIMRA's LDEx
+      standards, naming both the Evidence of Insurability (EOIS) and Benefits
+      Enrollment Management (BEM) profiles, alongside SSO, API notifications and
+      file integrations. Named platform partners include Alight Worklife,
+      Benefitfocus/Benefitplace, bswift, Businessolver/Benefitsolver, Empyrean,
+      WTW BenefitConnect and Workday (Cloud Connect for Benefits, Report-as-a-Service).
+    evidence_url: https://www.securian.com/employers/flexible-administration/strategic-partnerships/securian-platform-connect.html
+    verification_gap: >-
+      No LDEx schema, message sample, WSDL or OpenAPI is published anywhere on a
+      Securian host, so the claim cannot be confirmed against a contract.
+  - id: acord
+    name: ACORD insurance data standards
+    conforms: false
+    claimed: false
+    verified: false
+    domain_standard: true
+    evidence: >-
+      No ACORD reference found on any Securian public page, in the sitemap
+      (634 URLs scanned), or in any published contract. Recorded as a checked
+      absence, not a penalty - ACORD adoption is common in life insurance but
+      Securian does not state it publicly.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No OAuth 2.0 authorization server discovered. /.well-known/oauth-authorization-server
+      returns 404 on www.securian.com and api.securian.com.
+  - id: oidc
+    conforms: false
+    evidence: >-
+      /.well-known/openid-configuration returns 404 on www.securian.com and
+      api.securian.com. connect.securian.com returns 200 but the body is an
+      Imperva/Incapsula challenge shell, not a discovery document.
+  - id: rfc9457
+    conforms: false
+    evidence: No published contract or error reference to evaluate.
+  - id: pagination
+    conforms: false
+    evidence: No published contract or API reference to evaluate.
+  - id: idempotency
+    conforms: false
+    evidence: No published contract or API reference to evaluate.
+compliance:
+  certifications_published: false
+  trust_center: false
+  evidence: >-
+    probe-security-programs.py returned vdp=none trust=none. trust.securian.com
+    does not resolve. https://www.securian.com/about-us/sustainability/inspiring-trust/cybersecurity-and-data-privacy.html
+    (HTTP 200) describes Securian's cybersecurity and data-privacy posture in
+    narrative form but names no certification (no SOC 2, ISO 27001, PCI or HITRUST
+    attestation is published). No Compliance pointer is wired into apis.yml.

@@ -1,0 +1,45 @@
+# Securian Financial
+
+> Securian Financial Group is a Saint Paul, Minnesota-based mutual holding company offering life insurance, annuities, institutional retirement solutions, trust services, investment management and group workplace benefits across the United States and Canada. Securian does **not** operate a public developer program and publishes no machine-readable API contract.
+
+## What an agent should know first
+
+- **There is no public API.** No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, WSDL or Protobuf contract is published on any Securian host.
+- **There is no developer portal.** `developer.securian.com`, `developers.securian.com`, `docs.securian.com` and `apis.securian.com` do not resolve.
+- **There is an API gateway, but no public routes.** `api.securian.com` resolves and answers, but every path returns a Kong gateway body: `{"message":"no Route matched with those values"}`. It fronts partner traffic, not a self-service API.
+- **Integration is sales-gated.** Both integration products below are sold through a contact form, not signed up for.
+- **No MCP server, no agent card, no llms.txt, no security.txt, no status page, no SDKs, no CLI, no Postman collection, no GitHub organization.**
+
+## Integration surfaces (partner-only, no published contract)
+
+- Securian Platform Connect — group benefits data exchange with employer benefits-administration platforms, using LIMRA LDEx standards (Evidence of Insurability / EOIS, and Benefits Enrollment Management / BEM), single sign-on, API notifications and file integrations (EOI notification, eligibility, death claim). Named platform partners: Alight Worklife, Benefitfocus/Benefitplace, bswift, Businessolver/Benefitsolver, Empyrean, WTW BenefitConnect, Workday (Cloud Connect for Benefits, Report-as-a-Service): https://www.securian.com/employers/flexible-administration/strategic-partnerships/securian-platform-connect.html
+- FlexTech — embedded payment-protection for digital lenders and financial institutions, launched March 2026 with Walnut. Supports hosted enrollment or API-based integration; the page's only call to action is a sales contact form: https://www.securian.com/financial-institutions/products-solutions/embedded-technology-solutions.html
+
+## Business lines
+
+- Life insurance and annuities (Minnesota Life Insurance Company, Securian Life Insurance Company)
+- Institutional retirement solutions and trust services
+- Investment management (Securian Asset Management)
+- Group workplace benefits for employers
+- Payment protection and embedded protection for financial institutions
+- Securian Canada
+
+## Company links
+
+- Website: https://www.securian.com/
+- About: https://www.securian.com/about-us.html
+- Newsroom / news releases: https://www.securian.com/about-us/newsroom/news-releases.html
+- Contact: https://www.securian.com/contact-us.html
+- Legal information: https://www.securian.com/legal-information.html
+- Privacy notices: https://www.securian.com/privacy-notices.html
+- Cybersecurity and data privacy: https://www.securian.com/about-us/sustainability/inspiring-trust/cybersecurity-and-data-privacy.html
+- LinkedIn: https://www.linkedin.com/company/securian-financial
+
+## How to reach Securian about integration
+
+There is no self-service path. Financial institutions use the FlexTech contact form at https://www.securian.com/contact-us/financial-institution-contact-form.html; employers and benefits platforms go through https://www.securian.com/contact-us.html.
+
+---
+generated: 2026-08-28
+method: generated
+source: apis.yml + API Evangelist enrichment probes of securian.com, api.securian.com, connect.securian.com, advisor.securian.com

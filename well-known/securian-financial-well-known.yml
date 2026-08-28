@@ -1,0 +1,94 @@
+generated: '2026-08-28'
+method: probed
+source: live HTTPS probes of every Securian host reachable from apis.yml and contract discovery
+note: >-
+  Nothing was served. Every /.well-known/ path on every Securian host returned a
+  404 or an anti-bot challenge shell. www.securian.com answers 404 with the AEM
+  site's branded error page; api.securian.com answers 404 with a Kong gateway
+  body ("no Route matched with those values"); connect.securian.com sits behind
+  Imperva/Incapsula and returns a JavaScript challenge - the 200s it gives for
+  /api-docs and /.well-known/openid-configuration are that challenge shell, not
+  documents, and are recorded as misses. Because no path returned a real
+  document, NO WellKnown or SecurityTxt pointer is wired into apis.yml: this
+  file records a verified absence, not a served surface.
+hosts:
+  - host: www.securian.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: api.securian.com
+    note: >-
+      Kong API gateway edge. Resolves and answers, but every path returns the
+      gateway's unrouted-request body, so no public route is exposed.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: connect.securian.com
+    note: >-
+      Imperva/Incapsula-protected partner host. 200 responses on this host are
+      the bot-challenge shell (an HTML page loading /_Incapsula_Resource), never
+      a document, and are recorded as misses per the pipeline's SPA/soft-200 rule.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        result: miss
+        reason: Incapsula challenge HTML, not an OpenID discovery document
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+  - host: advisor.securian.com
+    note: Advisor login host; /.well-known/* is blanket-403 by the edge.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+  - host: www.securiancanada.ca
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null

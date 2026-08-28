@@ -1,0 +1,25 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Registry and web search for a Securian Financial MCP server (npm, PyPI, GitHub,
+  vendor docs), plus direct probes of www.securian.com, api.securian.com and
+  connect.securian.com for an MCP endpoint or agent card.
+name: Securian Financial
+status: absent
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+tools: []
+note: >-
+  Securian Financial ships no MCP server, hosted or local. No @securian / securian
+  package exists on npm, PyPI, NuGet, Maven Central, RubyGems or crates.io, there
+  is no Securian GitHub organization (api.github.com/orgs/securian and three name
+  variants all 404), and no agent card or MCP endpoint was found on any Securian
+  host. No candidate tool list could be derived either: Securian publishes no
+  OpenAPI, GraphQL or AsyncAPI contract to derive operations from, so this file
+  records the absence rather than an invented tool surface. No MCPServer pointer
+  is wired into apis.yml.

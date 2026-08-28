@@ -1,32 +1,93 @@
 aid: securian-financial
 name: "Securian Financial"
 specificationVersion: '0.23'
+description: >-
+  Securian Financial Group is a Saint Paul, Minnesota-based mutual holding company
+  offering life insurance, annuities, institutional retirement solutions, trust
+  services, investment management and group workplace benefits to individuals,
+  employers, financial institutions and institutional clients across the United
+  States and Canada. Its operating companies include Minnesota Life Insurance
+  Company, Securian Life Insurance Company, Securian Asset Management and Securian
+  Canada. Securian does not run a public developer program: its integration
+  surfaces are partner-facing and sales-gated. Securian Platform Connect exchanges
+  benefits data with employer benefits-administration platforms using LIMRA LDEx
+  standards (Evidence of Insurability and Benefits Enrollment Management) plus SSO,
+  API notifications and file feeds, and FlexTech - launched March 2026 with Walnut -
+  embeds payment protection into digital lending journeys through API-based
+  integration. Neither publishes a machine-readable contract, developer portal or
+  self-service onboarding.
 accessModel:
   pricing: unknown
-  onboarding: unknown
+  onboarding: sales
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Partner Only
+  confidence: medium
+  source:
+    - https://www.securian.com/employers/flexible-administration/strategic-partnerships/securian-platform-connect.html
+    - https://www.securian.com/financial-institutions/products-solutions/embedded-technology-solutions.html
+  generated: '2026-08-28'
+  method: searched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/securian-financial.png
 tags:
   - Fortune 1000
-url: 
-  https://raw.githubusercontent.com/api-evangelist/securian-financial/refs/heads/main/apis.yml
-modified: '2026-03-21'
+  - Insurance
+  - Life Insurance
+  - Financial Services
+  - Retirement
+  - Employee Benefits
+  - Annuities
+  - Asset Management
+  - Embedded Insurance
+created: '2026-03-21'
+modified: '2026-08-28'
+url: https://raw.githubusercontent.com/api-evangelist/securian-financial/refs/heads/main/apis.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/securian-financial-domain-security.yml
+  - type: LLMsTxt
+    url: llms/securian-financial-llms.txt
+  - type: Conformance
+    url: conformance/securian-financial-conformance.yml
+  - type: Plans
+    url: plans/securian-financial-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/securian-financial-rate-limits.yml
+  - type: Website
+    url: https://www.securian.com/
   - type: LinkedIn
     url: https://www.linkedin.com/company/securian-financial
-  - type: Website
-    url: https://www.securian-financial.com
-  - url: https://www.securian.com/about-us/newsroom/news-releases.html
-    type: Blog
-description: >-
-  Securian Financial is a financial services holding company that provides life insurance,
-  retirement solutions, investment management, and group benefits to individuals,
-  businesses, and institutions.
+  - type: Blog
+    url: https://www.securian.com/about-us/newsroom/news-releases.html
+  - type: Support
+    url: https://www.securian.com/contact-us.html
+  - type: TermsOfService
+    url: https://www.securian.com/legal-information.html
+  - type: PrivacyPolicy
+    url: https://www.securian.com/privacy-notices.html
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Securian runs a Kong gateway at api.securian.com that answers every request
+    with "no Route matched with those values", and both integration products -
+    FlexTech embedded protection and Securian Platform Connect - route to a sales
+    contact form instead of any developer signup, reference or spec.
+  evidence:
+    - url: https://api.securian.com/openapi.json
+      status: 404
+    - url: https://www.securian.com/financial-institutions/products-solutions/embedded-technology-solutions.html
+      status: 200
+    - url: https://developer.securian.com/
+      status: 0
+  checked: '2026-08-28'

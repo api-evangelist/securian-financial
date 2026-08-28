@@ -1,0 +1,35 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org/pypi/<pkg>/json, azuresearch-usnc.nuget.org,
+  search.maven.org, rubygems.org/api/v1/search.json, crates.io/api/v1/crates,
+  and api.github.com/orgs/{securian,securian-financial,SecurianFinancial,securianfinancial}
+package_count: 0
+packages: []
+registries_checked:
+  - registry: npm
+    query: securian
+    result: no first-party package
+  - registry: pypi
+    query: securian / securian-financial
+    result: 404 - no package
+  - registry: nuget
+    query: securian
+    result: no results
+  - registry: maven-central
+    query: securian
+    result: no results
+  - registry: rubygems
+    query: securian
+    result: empty array
+  - registry: crates.io
+    query: securian
+    result: total 0
+  - registry: github
+    query: securian, securian-financial, SecurianFinancial, securianfinancial
+    result: 404 - no Securian GitHub organization exists
+note: >-
+  Securian Financial publishes no client libraries or SDKs in any public package
+  registry, and has no GitHub organization to host source. There is nothing to
+  derive from either - apis.yml carries no SDK, CLI or SourceCode link because
+  none is published. No SDKs or Packages pointer is wired: an honest zero.

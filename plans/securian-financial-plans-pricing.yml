@@ -1,0 +1,16 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.securian.com/financial-institutions/products-solutions/embedded-technology-solutions.html
+  plus a scan of all 634 URLs in https://www.securian.com/sitemap.xml for a
+  pricing, plans or developer-tier page.
+plan_count: 0
+currency: null
+plans: []
+note: >-
+  Securian Financial publishes no API pricing, plans or tiers of any kind. There
+  is no developer program to price: the FlexTech embedded-protection platform and
+  Securian Platform Connect are both sold through a sales conversation, and the
+  FlexTech page's only call to action is a financial-institution contact form
+  (/contact-us/financial-institution-contact-form.html). No pricing page exists in
+  the sitemap. An honest zero - not an unchecked field.

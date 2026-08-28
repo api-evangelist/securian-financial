@@ -1,0 +1,15 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Scan of https://www.securian.com/sitemap.xml (634 URLs) for an API reference,
+  developer or rate-limit page, plus direct probes of api.securian.com.
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+note: >-
+  No published rate limits. Securian has no public API reference to document them
+  in. api.securian.com is a Kong gateway - Kong ships a rate-limiting plugin that
+  emits RateLimit-* / X-RateLimit-* headers - but every request returns the
+  unrouted 404 body, so no live response carrying rate-limit headers could be
+  observed and nothing is asserted here. Honest zero.
